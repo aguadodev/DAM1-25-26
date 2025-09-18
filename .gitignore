@@ -1,1 +1,4 @@
 *.class
+/bin
+bin/App.class
+bin/MayorDeEdad.class
