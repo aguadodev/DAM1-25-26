@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * @author Óscar
+ */
 public class MayorDeEdad {
     public static void main(String[] args) {
         String nombre;
@@ -12,6 +15,7 @@ public class MayorDeEdad {
 
         System.out.println("Escribe tu edad: ");
         edad = sc.nextInt();
+        sc.close();  // Cierro el Scanner para liberar recursos
 
         boolean mayorDeEdad = edad >= MAYORIA_DE_EDAD;
 
