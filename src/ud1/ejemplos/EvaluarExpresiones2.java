@@ -1,3 +1,4 @@
+package ud1.ejemplos;
 public class EvaluarExpresiones2 {
     public static void main(String[] args) {
         int resultado = 10;

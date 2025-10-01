@@ -1,3 +1,4 @@
+package ud1.ejercicios;
 import java.util.Scanner;
 /** 
  * EcuacionGrado2.
