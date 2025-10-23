@@ -3,6 +3,37 @@ package ud2;
 public class Util {
 
     /*
+     * CARACTERES Y CADENAS
+     */
+    public static boolean esVocal(char caracter) {
+        boolean esVocal = false;
+        switch (caracter) {
+            case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U',
+                    'á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú':
+                esVocal = true;
+        }
+
+        return esVocal;
+    }
+
+    /*
+     * NÚMEROS: PRIMOS Y OTROS
+     */
+    public static boolean esPrimo(int n) {
+        if (n <= 1)
+            return false;
+
+        boolean esPrimo = true;
+        for (int i = 2; esPrimo && i <= n / 2; i++) {
+            if (n % i == 0) {
+                esPrimo = false;
+            }
+        }
+
+        return esPrimo;
+    }
+
+    /*
      * FECHAS Y HORAS
      */
     public static boolean esBisiesto(int anho) {
@@ -35,7 +66,6 @@ public class Util {
         return String.format("%02d/%02d/%04d", dia, mes, anho);
     }
 
-
     /*
      * FUNCIONES DE FIGURAS GEOMÉTRICAS
      */
@@ -45,6 +75,6 @@ public class Util {
 
     public static double volumenCilindro(double altura, double radio) {
         return Math.PI * Math.pow(radio, 2) * altura;
-    }    
+    }
 
 }
