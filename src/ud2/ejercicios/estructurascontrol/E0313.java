@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicios.estructurascontrol;
 
 /*
  * E0312. Pedir 5 calificaciones de alumnos y decir al final si hay algún suspenso.

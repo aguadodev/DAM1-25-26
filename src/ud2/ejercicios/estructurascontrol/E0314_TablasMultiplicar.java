@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicios.estructurascontrol;
 
 public class E0314_TablasMultiplicar {
     public static void main(String[] args) {

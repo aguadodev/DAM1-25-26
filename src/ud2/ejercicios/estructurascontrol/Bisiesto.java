@@ -1,4 +1,4 @@
-package ud2.ejercicios;
+package ud2.ejercicios.estructurascontrol;
 
 import java.util.Scanner;
 /**
