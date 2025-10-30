@@ -8,5 +8,6 @@ public class Ejemplo {
 
         System.out.print("Siguiente día al 23/04/2025? " + Util.mostrarDiaSiguiente(23,4,2025));
     
+        System.out.println(Util.mcd(25,10));
     }
 }
