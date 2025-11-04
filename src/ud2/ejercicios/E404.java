@@ -28,11 +28,17 @@ public class E404 {
         else
             mayor = c;
 
+        /* Otras maneras de calcular el máximo en una sola línea de código
+
+        // Invocando el método implementado anteriormente
         int mayor2 = obtenerMaximo(a, obtenerMaximo(b, c));
+
+        // Invocando un método equivalente de la API de Java
         int mayor3 = Math.max(a, Math.max(b, c));
 
+        // Con operadores ternarios encadenados
         int mayor4 = a > b ? a > c ? a : c : b > c ? b : c;
-
+        */
         return mayor;
     }
 
