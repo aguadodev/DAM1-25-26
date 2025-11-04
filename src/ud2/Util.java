@@ -1,5 +1,7 @@
 package ud2;
 
+import java.util.Scanner;
+
 public class Util {
 
     /*
@@ -14,6 +16,34 @@ public class Util {
         }
 
         return esVocal;
+    }
+
+    public static int leerIntRecursiva() {
+        Scanner sc = new Scanner(System.in);
+        try {
+            return sc.nextInt();
+        } catch (Exception e) {
+            String entradaIncorrecta = sc.nextLine();
+            System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            return leerIntRecursiva();
+        }
+    }
+
+    public static int leerInt() {
+        Scanner sc = new Scanner(System.in);
+        int numeroEntero = 0;
+        boolean numeroValido = false;
+        do {
+            try {
+
+                numeroEntero = sc.nextInt();
+                numeroValido = true;
+            } catch (Exception e) {
+                String entradaIncorrecta = sc.nextLine();
+                System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            }
+        } while (!numeroValido);
+        return numeroEntero;
     }
 
     /*

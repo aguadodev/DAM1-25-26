@@ -12,18 +12,44 @@ de dividir el primero (numerador) por el segundo (denominador).
  */
 
 public class Division {
-    public static void main(String[] args) {
+
+    public static int leerIntRecursiva() {
+        Scanner sc = new Scanner(System.in);
         try {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Introduzca el numerador: ");
-            int numerador = sc.nextInt();
-            System.out.print("Introduzca el denominador: ");
-            int denominador = sc.nextInt();
-            sc.close();
+            return sc.nextInt();
+        } catch (Exception e) {
+            String entradaIncorrecta = sc.nextLine();
+            System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            return leerIntRecursiva();
+        }
+    }
+
+    public static int leerInt() {
+        Scanner sc = new Scanner(System.in);
+        int numeroEntero = 0;
+        boolean numeroValido = false;
+        do {
+            try {
+
+                numeroEntero = sc.nextInt();
+                numeroValido = true;
+            } catch (Exception e) {
+                String entradaIncorrecta = sc.nextLine();
+                System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            }
+        } while (!numeroValido);
+        return numeroEntero;
+    }
+
+    public static void main(String[] args) {
+        System.out.print("Introduzca el numerador: ");
+        int numerador = leerIntRecursiva();
+        System.out.print("Introduzca el denominador: ");
+        int denominador = leerInt();
+
+        try {
             int resultado = numerador / denominador;
             System.out.print("El resultado de dividir " + numerador + " entre " + denominador + " es: " + resultado);
-        } catch (InputMismatchException e) {
-            System.out.println("Error con los datos de entrada. Deben ser números enteros.");
         } catch (ArithmeticException e) {
             System.out.println("Error al dividir: " + e.getMessage()
                     + ". El denominador no puede ser 0 o el resultado es infinito.");
