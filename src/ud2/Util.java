@@ -46,9 +46,63 @@ public class Util {
         return numeroEntero;
     }
 
+    public static void dibujaTriangulo(int n) {
+        for (int i = 1; i <= n; i++) {
+            // Imprimir espacios
+            for (int j = 0; j < n - i; j++) {
+                System.out.print(" ");
+            }
+            // Imprimir asteriscos
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            // Salto de línea
+            System.out.println();
+        }
+    }
     /*
      * NÚMEROS: PRIMOS Y OTROS
      */
+
+    public static int numDigitos(long num) {
+        int cont = 0;
+        if (num == 0) {
+            return 1;
+        }
+        while (num != 0) {
+            cont++; // Incrementa el contador de dígitos
+            num = num / 10; // Elimina el último dígito
+        }
+        return cont;
+    }
+
+    static long invertirNumero(long n) {
+        long numInvert = 0;
+        while (n % 10 != 0) { // Mientras el último dígito de n sea distinto de 0
+            numInvert = numInvert * 10 + n % 10; // Construye (acumula) el número invertido
+            n = n / 10; // Elimina el último dígito de n
+        }
+        return numInvert;
+    }
+
+    public static boolean esCapicua(long n) {
+        long nInvertido = invertirNumero(n);
+        return n == nInvertido;
+    }
+
+    public static boolean esCapicuaR(long n) {
+        if (n == 0)
+            return true;
+
+        int numDigitos = Util.numDigitos(n);
+
+        int primerDigito = (int) (n / Math.pow(10, numDigitos - 1));
+        int ultimoDigito = (int) (n % 10);
+        long numeroRestante = (long) (n % Math.pow(10, numDigitos - 1) / 10);
+
+        return primerDigito == ultimoDigito && esCapicuaR(numeroRestante);
+    }
+
     public static boolean esPrimo(int n) {
         if (n <= 1)
             return false;
@@ -65,6 +119,7 @@ public class Util {
 
     /**
      * Máximo Común Divisor
+     * 
      * @param a
      * @param b
      * @return MCD
@@ -72,13 +127,13 @@ public class Util {
     public static int mcd(int a, int b) {
         int mcd = 0;
         // Casos Base
-        if (a == 0) 
+        if (a == 0)
             mcd = b;
         else if (b == 0)
             mcd = a;
         else if (b > a)
             mcd = mcd(a, b - a);
-        else 
+        else
             mcd = mcd(a - b, b);
 
         return mcd;
@@ -93,10 +148,36 @@ public class Util {
         }
     }
 
-
     /*
      * FECHAS Y HORAS
      */
+
+    /**
+     * 
+     * @param dia
+     * @return
+     */
+    public static String diaSemanaTexto(int dia) {
+        return switch (dia) {
+            case 1:
+                yield "Lunes";
+            case 2:
+                yield "Martes";
+            case 3:
+                yield "Miércoles";
+            case 4:
+                yield "Jueves";
+            case 5:
+                yield "Viernes";
+            case 6:
+                yield "Sábado";
+            case 7:
+                yield "Domingo";
+            default:
+                yield "Error";
+        };
+    }
+
     public static boolean esBisiesto(int anho) {
         boolean multiplo400 = anho % 400 == 0;
         boolean multiplo100 = anho % 100 == 0;
