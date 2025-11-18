@@ -4,29 +4,35 @@ import java.util.Scanner;
 
 public class Mario {
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
 
-        boolean inicioJuego = false;        
+        boolean juegoIniciado = false;
+        int contSaltosArriba = 0;
+        int contSaltosAbajo = 0;
         int altura = sc.nextInt();
         int posicionActual = altura;
-        while (altura != -1) {
+        while (altura >= 0) {
             // Procesar altura
-            if (!inicioJuego) {
+            if (!juegoIniciado) {
                 posicionActual = altura;
-                inicioJuego = true;
+                juegoIniciado = true;
             } else {
-                // Saltó hacia arriba?
-                // o saltó hacia abajo                
-                if (posicionActual > altura) {
+                if (altura > posicionActual) {
+                    // Saltó hacia arriba?
+                    contSaltosArriba++;
 
-                } else if (posicionActual < altura) {
-
+                } else if (altura < posicionActual) {
+                    // o saltó hacia abajo
+                    contSaltosAbajo++;
                 }
+                posicionActual = altura;
 
             }
             altura = sc.nextInt();
         }
+
+        System.out.println(contSaltosArriba + " " + contSaltosAbajo);
 
     }
 }
