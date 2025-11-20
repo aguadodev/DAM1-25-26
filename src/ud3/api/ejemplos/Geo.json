@@ -1,0 +1,16 @@
+{
+    "status": "success",
+    "country": "Spain",
+    "countryCode": "ES",
+    "region": "GA",
+    "regionName": "Galicia",
+    "city": "A Estrada",
+    "zip": "36680",
+    "lat": 42.7202,
+    "lon": -8.4338,
+    "timezone": "Europe/Madrid",
+    "isp": "Telefonica De Espana S.A.U.",
+    "org": "Axencia Para Modernizacion Tecnoloxica Galicia Amtega",
+    "as": "AS3352 TELEFONICA DE ESPANA S.A.U.",
+    "query": "195.57.104.115"
+}
