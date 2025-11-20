@@ -12,6 +12,10 @@ import java.util.regex.Pattern;
 
 public class GeolocalizacionPorIP {
     public static void main(String[] args) throws Exception {
+
+        // GeolocalizacionPorIP
+        // ********************
+
         // devuelve JSON con campos: country, city, lat, lon, ...
         String url = "http://ip-api.com/json";
 
@@ -29,6 +33,9 @@ public class GeolocalizacionPorIP {
         System.out.println("Ciudad:" + city);
         System.out.println("Lat:   " + latStr);
         System.out.println("Lon:   " + lonStr);
+
+        // SALIDA y PUESTA DE SOL SEGÚN IP
+        // *******************************
 
         String url2 = "https://api.sunrise-sunset.org/json?lat=" + latStr + "&lng=" + lonStr + "&formatted=0";
         System.out.println(url2);
