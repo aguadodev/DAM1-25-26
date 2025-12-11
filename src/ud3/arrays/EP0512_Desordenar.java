@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EP0512_Desordenar {
 
-    static void desordenar(int t[]) {
+    public static void desordenar(int t[]) {
         Random rnd = new Random();
         // Recorrer cada elemento
         for (int i = 0; i < t.length; i++) {
