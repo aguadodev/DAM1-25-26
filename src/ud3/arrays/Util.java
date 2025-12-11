@@ -31,31 +31,28 @@ public class Util {
 
     static public int[] eliminarAlInicio(int[] t) {
         t = Arrays.copyOfRange(t, 1, t.length);
-        //System.arraycopy(t, 1, t, 0, t.length - 1);
-        /*for (int i = 0; i < t.length - 1; i++) {
-            t[i] = t[i + 1];
-        }
-
-        t = Arrays.copyOf(t, t.length - 1);*/
 
         return t;
     }
 
     public static void main(String[] args) {
         int[] numeros = { 1, 2, 3, 4 };
-        numeros = insertarAlFinal(numeros, 5);
-        numeros = insertarAlInicio(numeros, 5);
-        numeros = insertarEnPosicion(numeros, 5, 2);
-        numeros = eliminarAlFinal(numeros);
-        numeros = eliminarAlInicio(numeros);
+        //numeros = insertarAlFinal(numeros, 5);
+        //numeros = insertarAlInicio(numeros, 5);
+        //numeros = insertarEnPosicion(numeros, 5, 2);
+        //numeros = eliminarAlFinal(numeros);
+        int[] menosNumeros = eliminarAlInicio(numeros);
+        System.out.println(Arrays.toString(menosNumeros));
         System.out.println(Arrays.toString(numeros));
 
+        /*
         int t1[] = {1, 2, 3};
         int t2[] = {1, 2, 3};
         
         System.out.println(t1 == t2); // false
         
         System.out.println(Arrays.equals(t1, t2)); // true
+         */
     }
 
 }
