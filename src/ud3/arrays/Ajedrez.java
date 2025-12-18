@@ -10,13 +10,13 @@ public class Ajedrez {
 
         mostrarTableroConLeyenda(tablero);
         System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
-        String entrada = leerMovimiento();
+        int[] mov = leerMovimiento();
         while (!fin) {
             //validarMovimiento
-            //ejecutarMovimiento
+            mover(mov);
             //comprobarJaqueOJaqueMate
             mostrarTableroConLeyenda(tablero);
-            entrada = leerMovimiento();
+            mov = leerMovimiento();
         }
         
         // Mensaje final: ganador/a o tablas
@@ -24,10 +24,22 @@ public class Ajedrez {
         System.out.println("Fin de la partida!");
     }
 
-    private static String leerMovimiento() {
+    private static int[] leerMovimiento() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Movimiento? Ejemplo \"e2 e4\": ");
-        return sc.nextLine();
+        String entrada = sc.nextLine();
+        char columnaOrigen = entrada.charAt(0); // columnaOrigen e
+        char filaOrigen = entrada.charAt(1); // filaOrigen 2
+        char columnaDestino = entrada.charAt(3); // columnaDestino e
+        char filaDestino = entrada.charAt(4); // filaDestino 4
+
+        int[] movimiento = {
+            7 - (filaOrigen - '1'),            
+            columnaOrigen - 'a',
+            7 - (filaDestino - '1'),
+            columnaDestino - 'a'
+        };
+        return movimiento;
     }
 
 
@@ -66,6 +78,24 @@ public class Ajedrez {
         
         System.out.println();        
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /*
