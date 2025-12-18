@@ -13,7 +13,7 @@ public class Ajedrez {
         int[] mov = leerMovimiento();
         while (!fin) {
             //validarMovimiento
-            mover(mov);
+            mover(tablero, mov);
             //comprobarJaqueOJaqueMate
             mostrarTableroConLeyenda(tablero);
             mov = leerMovimiento();
@@ -22,6 +22,10 @@ public class Ajedrez {
         // Mensaje final: ganador/a o tablas
 
         System.out.println("Fin de la partida!");
+    }
+
+    private static void mover(char[][] tablero, int[] mov) {
+        
     }
 
     private static int[] leerMovimiento() {
