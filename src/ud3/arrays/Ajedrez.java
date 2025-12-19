@@ -4,33 +4,79 @@ import java.util.Scanner;
 
 public class Ajedrez {
     public static void main(String[] args) {
+        // Crea e inicializa el tablero
         char[][] tablero = inicializarTablero();
+        // Establece el turno inicial para las piezas blancas
         boolean turnoBlancas = true;
-        boolean fin = false;
 
+        // Mostrar tablero y leer movimiento
         mostrarTableroConLeyenda(tablero);
         System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
-        int[] mov = leerMovimiento();
-        while (!fin) {
+        int[] mov = leerMovimiento(); // devuelve null si el usuario se rinde.
+        while (mov != null) {
             // validarMovimiento
-            mover(tablero, mov);
-            turnoBlancas = !turnoBlancas;
-            // comprobarJaqueOJaqueMate
-            mostrarTableroConLeyenda(tablero);
-            System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
+            if (esMovimientoValido(tablero, mov, turnoBlancas)) {
+                mover(tablero, mov);
+                turnoBlancas = !turnoBlancas;
+                // comprobarJaqueOJaqueMateOReyAhogado   
+                // Mostrar tablero y leer movimiento
+                mostrarTableroConLeyenda(tablero);
+                System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");                             
+            }
+            
             mov = leerMovimiento();
         }
 
         // Mensaje final: ganador/a o tablas
+        if (mov == null) {
+            System.out.println("Las " + (turnoBlancas ? "Blancas":"Negras") + " se han rendido.");
+            System.out.println("GANAN LAS " + (turnoBlancas ? "NEGRAS":"BLANCAS"));
+        }
 
         System.out.println("Fin de la partida!");
     }
 
+    /**
+     * 
+     * @param tablero
+     * @param mov
+     * @param turnoBlancas
+     * @return 
+     */
+    private static boolean esMovimientoValido(char[][] tablero, int[] mov, boolean turnoBlancas) {
+        // Suponemos que el movimiento es válido
+        boolean esMovimientoValido = true;
+        // Valida si la casilla de origen es del mismo color que el turno
+        // Valida que la casilla de destino NO sea del mismo color que el turno
+        // Valida que la pieza se pueda mover al destino según:
+        // - el tipo de pieza: peón, caballo, alfil, torre, dama, rey
+        // - tras el movimiento, el rey no puede quedar en jaque.
+        
+        return esMovimientoValido;
+    }    
+    
+    
+    /**
+     * Mueve una pieza del tablero, desde la casilla de origen a la de destino
+     * @param tablero Tablero de ajedrez con piezas
+     * @param mov Array de 4 enteros: 
+     *      - índices de fila y columna de origen
+     *      - índices de fila y columna de destino
+     */
     private static void mover(char[][] tablero, int[] mov) {
         tablero[mov[2]][mov[3]] = tablero[mov[0]][mov[1]];
         tablero[mov[0]][mov[1]] = '-';
     }
 
+    
+    /**
+     * Solicita repetidamente al usuario por teclado el movimiento a realizar:
+     *      - "e2 e4", por ejemplo, para mover una pieza
+     *      - "fin" para tirar el rey y rendirse
+     *  Valida la entrada de modo que las coordenadas están entre a1 y h8
+     * 
+     * @return Array de 4 enteros con los índices de las casillas de origen y destino
+     */
     private static int[] leerMovimiento() {
         Scanner sc = new Scanner(System.in);
         Boolean entradaValida = false;
@@ -75,6 +121,11 @@ public class Ajedrez {
         return movimiento;
     }
 
+    
+    /**
+     * Devuelve la referencia a un tablero con las piezas colocadas al inicio de la partida.
+     * @return Array de 8x8 caracteres
+     */
     static char[][] inicializarTablero() {
         char[][] nuevoTablero = {
                 { 't', 'c', 'a', 'd', 'r', 'a', 'c', 't' },
@@ -90,6 +141,11 @@ public class Ajedrez {
         return nuevoTablero;
     }
 
+    
+    /**
+     * Muestra el tablero de ajedrez con la leyenda de letras y números
+     * @param t Tablero
+     */
     static void mostrarTableroConLeyenda(char[][] t) {
         System.out.println();
 
@@ -111,8 +167,13 @@ public class Ajedrez {
         System.out.println();
     }
 
+    
+    
+    
     /*
-     * MÉTODOS ADICIONALES
+     ***********************
+     * MÉTODOS ADICIONALES *
+     ***********************
      */
 
     static void mostrarTablero(char[][] t) {
@@ -164,7 +225,6 @@ public class Ajedrez {
     }
 
     public static void mostrarTableroConLeyenda2(char[][] t) {
-
         int contador = 8;
 
         for (int i = 0; i < t.length; i++) {
@@ -175,7 +235,6 @@ public class Ajedrez {
                 System.out.print(" ");
             }
             System.out.println();
-
         }
 
         System.out.print("  ");
@@ -183,7 +242,6 @@ public class Ajedrez {
         for (char j2 = 'A'; j2 <= 'H'; j2++) {
             System.out.print(j2 + " ");
         }
-
     }
-
+    
 }
