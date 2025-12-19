@@ -18,19 +18,19 @@ public class Ajedrez {
             if (esMovimientoValido(tablero, mov, turnoBlancas)) {
                 mover(tablero, mov);
                 turnoBlancas = !turnoBlancas;
-                // comprobarJaqueOJaqueMateOReyAhogado   
+                // comprobarJaqueOJaqueMateOReyAhogado
                 // Mostrar tablero y leer movimiento
                 mostrarTableroConLeyenda(tablero);
-                System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");                             
+                System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
             }
-            
+
             mov = leerMovimiento();
         }
 
         // Mensaje final: ganador/a o tablas
         if (mov == null) {
-            System.out.println("Las " + (turnoBlancas ? "Blancas":"Negras") + " se han rendido.");
-            System.out.println("GANAN LAS " + (turnoBlancas ? "NEGRAS":"BLANCAS"));
+            System.out.println("Las " + (turnoBlancas ? "Blancas" : "Negras") + " se han rendido.");
+            System.out.println("GANAN LAS " + (turnoBlancas ? "NEGRAS" : "BLANCAS"));
         }
 
         System.out.println("Fin de la partida!");
@@ -41,41 +41,78 @@ public class Ajedrez {
      * @param tablero
      * @param mov
      * @param turnoBlancas
-     * @return 
+     * @return
      */
     private static boolean esMovimientoValido(char[][] tablero, int[] mov, boolean turnoBlancas) {
         // Suponemos que el movimiento es válido
         boolean esMovimientoValido = true;
         // Valida si la casilla de origen es del mismo color que el turno
+        char casillaOrigen = tablero[mov[0]][mov[1]];
+        if (!coincideColorPiezaCasilla(casillaOrigen, turnoBlancas)) {
+            System.out.println("La casilla de origen no contiene una pieza " + (turnoBlancas ? "blanca":"negra"));
+            return false;
+        }
+
         // Valida que la casilla de destino NO sea del mismo color que el turno
+        char casillaDestino = tablero[mov[2]][mov[3]];
+        if (coincideColorPiezaCasilla(casillaDestino, turnoBlancas)){
+                System.out.println("La casilla de destino no puede contener una pieza " + (turnoBlancas ? "blanca":"negra"));
+                return false;
+        }
+
         // Valida que la pieza se pueda mover al destino según:
+        
         // - el tipo de pieza: peón, caballo, alfil, torre, dama, rey
         // - tras el movimiento, el rey no puede quedar en jaque.
-        
+
         return esMovimientoValido;
-    }    
-    
-    
+    }
+
+    /**
+     * Devuelve true si la casilla contiene una pieza del color del turno indicado
+     * 
+     * @param casilla
+     * @param turnoBlancas
+     * @return
+     */
+    private static boolean coincideColorPiezaCasilla(char casilla, boolean turnoBlancas) {
+        if (turnoBlancas)
+            return casilla == 'P' ||
+                    casilla == 'T' ||
+                    casilla == 'C' ||
+                    casilla == 'A' ||
+                    casilla == 'D' ||
+                    casilla == 'R';
+        else
+            return casilla == 'p' ||
+                    casilla == 't' ||
+                    casilla == 'c' ||
+                    casilla == 'a' ||
+                    casilla == 'd' ||
+                    casilla == 'r';
+    }
+
     /**
      * Mueve una pieza del tablero, desde la casilla de origen a la de destino
+     * 
      * @param tablero Tablero de ajedrez con piezas
-     * @param mov Array de 4 enteros: 
-     *      - índices de fila y columna de origen
-     *      - índices de fila y columna de destino
+     * @param mov     Array de 4 enteros:
+     *                - índices de fila y columna de origen
+     *                - índices de fila y columna de destino
      */
     private static void mover(char[][] tablero, int[] mov) {
         tablero[mov[2]][mov[3]] = tablero[mov[0]][mov[1]];
         tablero[mov[0]][mov[1]] = '-';
     }
 
-    
     /**
      * Solicita repetidamente al usuario por teclado el movimiento a realizar:
-     *      - "e2 e4", por ejemplo, para mover una pieza
-     *      - "fin" para tirar el rey y rendirse
-     *  Valida la entrada de modo que las coordenadas están entre a1 y h8
+     * - "e2 e4", por ejemplo, para mover una pieza
+     * - "fin" para tirar el rey y rendirse
+     * Valida la entrada de modo que las coordenadas están entre a1 y h8
      * 
-     * @return Array de 4 enteros con los índices de las casillas de origen y destino
+     * @return Array de 4 enteros con los índices de las casillas de origen y
+     *         destino
      */
     private static int[] leerMovimiento() {
         Scanner sc = new Scanner(System.in);
@@ -97,33 +134,32 @@ public class Ajedrez {
                 int fOrigen = 7 - (filaOrigen - '1');
                 int cDestino = columnaDestino - 'a';
                 int fDestino = 7 - (filaDestino - '1');
-                
-                if (cOrigen >= 0 && cOrigen < 8 
-                    && fOrigen >= 0 && fOrigen < 8 
-                    && cDestino >= 0 && cDestino < 8 
-                    && fDestino >= 0 && fDestino < 8 
-                )
-                
-                movimiento = new int[4];
+
+                if (cOrigen >= 0 && cOrigen < 8
+                        && fOrigen >= 0 && fOrigen < 8
+                        && cDestino >= 0 && cDestino < 8
+                        && fDestino >= 0 && fDestino < 8)
+
+                    movimiento = new int[4];
                 movimiento[0] = fOrigen;
                 movimiento[1] = cOrigen;
                 movimiento[2] = fDestino;
                 movimiento[3] = cDestino;
-                
+
                 entradaValida = true;
-    
+
             } catch (Exception e) {
                 System.out.println("Entrada inválida");
             }
 
-
-        } while (!entradaValida);        
+        } while (!entradaValida);
         return movimiento;
     }
 
-    
     /**
-     * Devuelve la referencia a un tablero con las piezas colocadas al inicio de la partida.
+     * Devuelve la referencia a un tablero con las piezas colocadas al inicio de la
+     * partida.
+     * 
      * @return Array de 8x8 caracteres
      */
     static char[][] inicializarTablero() {
@@ -141,9 +177,9 @@ public class Ajedrez {
         return nuevoTablero;
     }
 
-    
     /**
      * Muestra el tablero de ajedrez con la leyenda de letras y números
+     * 
      * @param t Tablero
      */
     static void mostrarTableroConLeyenda(char[][] t) {
@@ -167,9 +203,6 @@ public class Ajedrez {
         System.out.println();
     }
 
-    
-    
-    
     /*
      ***********************
      * MÉTODOS ADICIONALES *
@@ -243,5 +276,5 @@ public class Ajedrez {
             System.out.print(j2 + " ");
         }
     }
-    
+
 }
