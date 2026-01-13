@@ -21,6 +21,27 @@ public class Strings {
         int longitud = cad.length(); // 8
         int longitud2 = "Hola".length(); // 4
 
+        System.out.println("COMPARACIONES");
+        System.out.println("Hola".equals(cad));
+        System.out.println(cad.equals("Hola"));
+
+        cad = "Mi perro ladra mucho";
+        String otra = "Un bonito perro blanco";
+        boolean b = cad.regionMatches(3, otra, 10, 8);
+        System.out.println(b);
+
+        System.out.println(cad + ". ".concat(otra));
+        
+        String multilinea = """
+                
+            STRING MULTILINEA
+                linea 1
+                linea 2
+                linea 3
+                """;
+
+        System.out.println(multilinea);
+
         System.out.println("FIN");
 
     }
