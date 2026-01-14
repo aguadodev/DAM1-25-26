@@ -1,5 +1,7 @@
 package ud3.strings;
 
+import java.util.Arrays;
+
 public class Strings {
     public static void main(String[] args) {
 
@@ -7,6 +9,9 @@ public class Strings {
         String cad = "En un lugar de la mancha";
         String msg = "Un corazón: \u2661";
         String str2 = new String("Mi perro \"Perico\"");
+
+        String[] palabras = cad.split(" ");
+        System.out.println(Arrays.toString(palabras));
 
         str = String.valueOf(1234566798);
         cad = String.valueOf(-12.1234);
@@ -41,6 +46,9 @@ public class Strings {
                 """;
 
         System.out.println(multilinea);
+
+
+
 
         System.out.println("FIN");
 
