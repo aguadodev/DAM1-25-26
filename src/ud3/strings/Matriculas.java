@@ -27,17 +27,15 @@ public class Matriculas {
             if (letrasValidas.indexOf(letra) == -1) {
                 return false;
             }
-            
+
         }
 
         return true;
     }
 
-    boolean esMatriculaValida(String matricula) {
-        return matricula != null && matricula.toUpperCase().matches("[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}");
-    }
-
-    
+boolean esMatriculaValida(String matricula) {
+    return matricula != null && matricula.toUpperCase().matches("[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}");
+}
 
     @Test
     void esMatriculaValidaTest() {
@@ -50,14 +48,14 @@ public class Matriculas {
         assertTrue(esMatriculaValida("9999BBZ"));
         assertTrue(esMatriculaValida("9999BBD"));
         assertTrue(esMatriculaValida("9999ZZZ"));
-        assertTrue(esMatriculaValida("1234BbB"));        
+        assertTrue(esMatriculaValida("1234BbB"));
 
         assertFalse(esMatriculaValida("123"));
         assertFalse(esMatriculaValida("1234BBBB"));
 
-        assertFalse(esMatriculaValida("ABCD123"));        
+        assertFalse(esMatriculaValida("ABCD123"));
         assertFalse(esMatriculaValida("12A4BBB"));
-        assertFalse(esMatriculaValida("12.4BBB"));        
+        assertFalse(esMatriculaValida("12.4BBB"));
 
         assertFalse(esMatriculaValida("1234BB."));
         assertFalse(esMatriculaValida("1234B5B"));
@@ -71,22 +69,35 @@ public class Matriculas {
         assertFalse(esMatriculaValida("1234BñB"));
     }
 
+    public String siguienteMatricula(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'siguienteMatricula'");
+    }
+
+    @Test
+    void siguienteMatriculaTest() {
+        assertEquals(siguienteMatricula("1234BBB"), "1235BBB");
+        assertEquals(siguienteMatricula("9999BBZ"), "0000BCB");
+        assertEquals(siguienteMatricula("9999BBD"), "0000BBF");
+        assertEquals(siguienteMatricula("9999ZZZ"), "0000BBB");
+        assertEquals(siguienteMatricula(""), null);
+        assertEquals(siguienteMatricula(null), null);
+    }
 
     int comparaMatriculas(String m1, String m2) {
-        String m1Aux = m1.substring(4, 7) + m1.substring(0,4);
-        String m2Aux = m2.substring(4, 7) + m2.substring(0,4);
+        String m1Aux = m1.substring(4, 7) + m1.substring(0, 4);
+        String m2Aux = m2.substring(4, 7) + m2.substring(0, 4);
 
         return m1Aux.compareToIgnoreCase(m2Aux);
     }
 
     @Test
     void comparaMatriculasTest() {
-        assertEquals(comparaMatriculas("1234BBB", "1234BBB"), 0);        
-        assertEquals(comparaMatriculas("1234BBB", "1234BBC"), -1);        
-        assertEquals(comparaMatriculas("1234BBC", "1234BBB"), 1);        
-        assertEquals(comparaMatriculas("1234BBB", "1233BBB"), 1);        
-        assertEquals(comparaMatriculas("1234BBB", "1235BBB"), -1);        
-
+        assertEquals(comparaMatriculas("1234BBB", "1234BBB"), 0);
+        assertEquals(comparaMatriculas("1234BBB", "1234BBC"), -1);
+        assertEquals(comparaMatriculas("1234BBC", "1234BBB"), 1);
+        assertEquals(comparaMatriculas("1234BBB", "1233BBB"), 1);
+        assertEquals(comparaMatriculas("1234BBB", "1235BBB"), -1);
     }
 
 }
