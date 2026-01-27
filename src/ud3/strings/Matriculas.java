@@ -69,14 +69,49 @@ boolean esMatriculaValida(String matricula) {
         assertFalse(esMatriculaValida("1234BñB"));
     }
 
-    public String siguienteMatricula(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'siguienteMatricula'");
+    public String siguienteMatricula(String matricula) {
+
+        if (matricula == null || matricula.length() < 7) 
+            return null;
+
+
+        String letrasStr = matricula.substring(4, 7);
+        boolean meLlevoUna = false;
+        int numerosInt = Integer.parseInt(matricula.substring(0, 4)); 
+        if (numerosInt == 9999) {
+            numerosInt = 0;
+            meLlevoUna = true;
+            
+            // Incrementar letras
+            char[] letras = letrasStr.toCharArray();
+            for (int i = 2; i >= 0 && meLlevoUna; i--) {
+                if (letras[i] == 'Z') {
+                    letras[i] = 'B';
+                } else {
+                    // Incrementar letra
+                    String letrasValidas = "BCDFGHJKLMNPRSTVWXYZ";
+                    int posLetraActual = letrasValidas.indexOf(letras[i]);
+                    letras[i] = letrasValidas.charAt(posLetraActual + 1);
+                    meLlevoUna = false;
+                }                    
+            }
+            letrasStr = String.valueOf(letras);
+
+        } else {
+            numerosInt++;
+        }
+        
+        String numerosStr = String.format("%04d", numerosInt);    
+
+        return numerosStr + letrasStr;
     }
 
     @Test
     void siguienteMatriculaTest() {
         assertEquals(siguienteMatricula("1234BBB"), "1235BBB");
+        assertEquals(siguienteMatricula("0234BBB"), "0235BBB");
+        assertEquals(siguienteMatricula("9999BBP"), "0000BBR");
+        assertEquals(siguienteMatricula("9999BBN"), "0000BBP");
         assertEquals(siguienteMatricula("9999BBZ"), "0000BCB");
         assertEquals(siguienteMatricula("9999BBD"), "0000BBF");
         assertEquals(siguienteMatricula("9999ZZZ"), "0000BBB");
