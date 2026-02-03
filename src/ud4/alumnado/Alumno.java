@@ -28,6 +28,8 @@ public class Alumno {
 
     public String getUsername() {
         // Genera el nombre de usuario
+        
+
         return null;
     }
 
