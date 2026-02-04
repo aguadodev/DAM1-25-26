@@ -6,7 +6,7 @@ public class PreguntaMasDificil {
         if (notas == null || notas.length == 0 || notas[0].length == 0)
             return -1;
 
-        double mediaPreguntaMasDificil = Integer.MAX_VALUE;
+        double mediaPreguntaMasDificil = Double.MAX_VALUE;
 
         for (int c = 0; c < notas[0].length; c++) {
             double suma = 0;

@@ -10,7 +10,18 @@ public class Alumno {
     LocalDate fechaNacimiento;
     double notaProgramacion;
     double notaContornos;
+    private static String centroEducativo = "IES Chan do Monte";
+
+
+    public static void setCentroEducativo(String nuevoCentro) {
+        if (nuevoCentro != null && !nuevoCentro.isEmpty())
+            centroEducativo = nuevoCentro;
+    }
     
+    public static String getCentroEducativo() {
+        return centroEducativo;
+    }
+
 
     public void mostrar() {
         System.out.println("Ficha de Alumno/a");
@@ -28,9 +39,32 @@ public class Alumno {
 
     public String getUsername() {
         // Genera el nombre de usuario
-        
+        String username = "";
+        username += nombre.charAt(0);
 
-        return null;
+        int i = 0;
+        while (i < apellido1.length() && i < 4 && apellido1.charAt(i) != ' ') {
+            username += apellido1.charAt(i);
+            i++;
+        }
+
+        i = 0;
+        while (i < apellido2.length() && i < 4 && apellido2.charAt(i) != ' ') {
+            username += apellido2.charAt(i);
+            i++;
+        }
+
+        username = username.toLowerCase();
+
+        username = username.replace('á', 'a');
+        username = username.replace('é', 'e');
+        username = username.replace('í', 'i');
+        username = username.replace('ó', 'o');
+        username = username.replace('ú', 'u');
+        username = username.replace('ü', 'u');
+        username = username.replace('ñ', 'n');
+
+        return username;        
     }
 
 }
