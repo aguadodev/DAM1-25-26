@@ -1,0 +1,14 @@
+@startuml Modelo_Persona
+class Persona {
+  -String nombre
+  -byte edad
+  -double estatura
+  
+  Persona()
+  Persona(String nombre)
+  Persona(String nombre, int edad, double estatura)
+  +saludar()
+  +cumplirAños()
+  +crecer(int cm)
+}
+@enduml

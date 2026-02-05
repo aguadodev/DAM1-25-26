@@ -12,11 +12,11 @@ public class Alumno {
     double notaContornos;
     private static String centroEducativo = "IES Chan do Monte";
 
-
     public static void setCentroEducativo(String nuevoCentro) {
         if (nuevoCentro != null && !nuevoCentro.isEmpty())
             centroEducativo = nuevoCentro;
     }
+
     
     public static String getCentroEducativo() {
         return centroEducativo;
@@ -32,10 +32,16 @@ public class Alumno {
         System.out.println("Nombre de usuari@: " + getUsername());
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Fecha de Nacimiento: " + fechaNacimiento.format(formato));
-        System.out.println("Nota Programación: " + notaProgramacion );
+        System.out.println("Nota Programación: " + notaProgramacion);
         System.out.println("Nota Contornos: " + notaContornos);
         System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
     }
+
+    public void getIniciales() {
+        String inicales = nombre.substring(0, 1) + apellido1.substring(0, 1)
+                + apellido2.substring(0, 1);
+        System.out.println(inicales.toUpperCase());
+    }    
 
     public String getUsername() {
         // Genera el nombre de usuario
@@ -64,7 +70,7 @@ public class Alumno {
         username = username.replace('ü', 'u');
         username = username.replace('ñ', 'n');
 
-        return username;        
+        return username;
     }
 
 }

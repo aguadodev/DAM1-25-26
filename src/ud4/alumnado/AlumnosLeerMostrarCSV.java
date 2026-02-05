@@ -26,11 +26,12 @@ public class AlumnosLeerMostrarCSV {
 
         Alumno.setCentroEducativo("");
 
-        System.out.println("\n\nLISTADO DE ALUMNOS del " + Alumno.centroEducativo);
+        System.out.println("\n\nLISTADO DE ALUMNOS del " + Alumno.getCentroEducativo());
         System.out.println("==================================\n");
         for (Alumno alumno : alumnos) {
             //AlumnoLeerMostrar.mostrarAlumno(alumno);
-            alumno.mostrar();
+            //alumno.mostrar();
+            alumno.getIniciales();
             System.out.println();
         }
 
