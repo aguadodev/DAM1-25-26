@@ -24,7 +24,7 @@ public class CuentaCorriente {
 
     public CuentaCorriente(String dni, String nombre) {
         this(dni, nombre, 0);
-    }    
+    }
 
     public boolean sacarDinero(double importe) {
         if (importe <= this.saldo) {
@@ -46,7 +46,7 @@ public class CuentaCorriente {
         System.out.println("================");
         System.out.println("Titular: " + nombreTitular + " (" + dni + ")");
         System.out.println("Saldo = " + saldo + " euros)");
-        if (gestor != null) 
+        if (gestor != null)
             gestor.mostrar();
     }
 
@@ -92,5 +92,24 @@ public class CuentaCorriente {
         this.gestor = gestor;
     }
 
-    
+    public static boolean transferencia(CuentaCorriente ccOrigen, CuentaCorriente ccDestino, double importe) {
+        if (ccOrigen.saldo >= importe) {
+            ccDestino.saldo += importe;
+            ccOrigen.saldo -= importe;
+            return true;
+        }
+        
+        return false;
+    }
+
+    public boolean transferir(CuentaCorriente ccDestino, double importe) {
+        if (saldo >= importe) {
+            ccDestino.saldo += importe;
+            saldo -= importe;
+            return true;
+        }
+        
+        return false;
+    }
+
 }
