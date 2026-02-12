@@ -11,5 +11,23 @@ public class CrearPersonaje {
         System.out.println(per1.mostrar());
         System.out.println(per2.mostrar());
         System.out.println(per3.mostrar());
+
+        Personaje per4 = new Personaje(null, Raza.HOBBIT, 1,1, 1);
+        System.out.println(per4.mostrar());
+
+        Personaje per5 = new Personaje(null, Raza.ORCO);
+        System.out.println(per5.mostrar());
+
+        System.out.println(Personaje.rnd(1, 100));
+
+        System.out.println(per1);
+        System.out.println(per1.sumarExperiencia(900)); // 0  900
+        System.out.println(per1.sumarExperiencia(200));  // 1  1100
+        System.out.println(per1.sumarExperiencia(1000));  // 1  2100
+        System.out.println(per1.sumarExperiencia(3000));  // 3  5100
+        
+        
+        
+
     }
 }
