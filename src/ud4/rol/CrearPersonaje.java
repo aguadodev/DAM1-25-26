@@ -27,6 +27,12 @@ public class CrearPersonaje {
         System.out.println(per1.sumarExperiencia(3000));  // 3  5100
         
         
+        int danho = per1.atacar(per2);
+        if (danho > 0) {
+            System.out.println(per2 + " pierde " + danho + " puntos");
+        } else {
+            System.out.println(per2 + " esquiva el ataque");
+        }
         
 
     }
