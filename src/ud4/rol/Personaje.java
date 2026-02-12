@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Personaje {
     private String nombre;
-    public Raza raza;
+    private Raza raza;
     private int fuerza;
     private int agilidad;
     private int constitucion;
@@ -102,7 +102,7 @@ public class Personaje {
     }
 
     boolean estaVivo(){
-        return pv >= 0;
+        return pv > 0;
     }
 
 
@@ -110,7 +110,15 @@ public class Personaje {
     SISTEMA DE COMBATE
     */
     int atacar(Personaje enemigo) {
-
+        int ataque = fuerza + rnd(1, 100);
+        int defensa = enemigo.agilidad + rnd(1, 100);
+        int danho = Math.min(ataque - defensa, enemigo.pv);
+        if (danho > 0) {
+            enemigo.perderVida(danho);
+            enemigo.sumarExperiencia(danho);
+            sumarExperiencia(danho);
+            return danho;
+        }
         return 0;
     }
 
@@ -122,4 +130,20 @@ public class Personaje {
         Random rnd = new Random();
         return rnd.nextInt(inicio, fin + 1);
     }
+
+
+
+    /*
+    * GETTERS
+    */
+    
+    public String getNombre() {
+        return nombre;
+    }
+    public int getAgilidad() {
+        return agilidad;
+    }
+
+
+
 }
