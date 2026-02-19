@@ -1,20 +1,20 @@
-package ud4.alumnado;
+package ud4.alumnado.ejerciciosanteriores;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import ud3.strings.Util;
 
-public class AlumnosLeerMostrarCSV {
+public class AlumnoV01sLeerMostrarCSV {
     public static void main(String[] args) {
 
         String[] alumnosCSV = Util.readFileToStringArray("alumnos.csv");
 
-        Alumno[] alumnos = new Alumno[alumnosCSV.length];
+        AlumnoV01[] alumnos = new AlumnoV01[alumnosCSV.length];
 
         for (int i = 0; i < alumnosCSV.length; i++) {
             String[] atributos = alumnosCSV[i].split(",");
-            alumnos[i] = new Alumno();
+            alumnos[i] = new AlumnoV01();
             alumnos[i].nombre = atributos[0];
             alumnos[i].apellido1 = atributos[1];
             alumnos[i].apellido2 = atributos[2];
@@ -24,12 +24,12 @@ public class AlumnosLeerMostrarCSV {
         }
 
 
-        Alumno.setCentroEducativo("");
+        AlumnoV01.setCentroEducativo("");
 
-        System.out.println("\n\nLISTADO DE ALUMNOS del " + Alumno.getCentroEducativo());
+        System.out.println("\n\nLISTADO DE ALUMNOS del " + AlumnoV01.getCentroEducativo());
         System.out.println("==================================\n");
-        for (Alumno alumno : alumnos) {
-            //AlumnoLeerMostrar.mostrarAlumno(alumno);
+        for (AlumnoV01 alumno : alumnos) {
+            //AlumnoV01LeerMostrar.mostrarAlumnoV01(alumno);
             //alumno.mostrar();
             alumno.getIniciales();
             System.out.println();

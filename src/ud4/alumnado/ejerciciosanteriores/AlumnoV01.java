@@ -1,57 +1,47 @@
-package ud4.alumnado;
+package ud4.alumnado.ejerciciosanteriores;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
-public class Alumno {
+public class AlumnoV01 {
     String nombre;
     String apellido1;
     String apellido2;
     LocalDate fechaNacimiento;
-    Modulo[] modulos; // Módulos en los que el alumno está matriculado
+    double notaProgramacion;
+    double notaContornos;
     private static String centroEducativo = "IES Chan do Monte";
-
-    public Alumno(String nombre, String apellido1, String apellido2) {
-
-        this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
-    }
 
     public static void setCentroEducativo(String nuevoCentro) {
         if (nuevoCentro != null && !nuevoCentro.isEmpty())
             centroEducativo = nuevoCentro;
     }
 
+    
     public static String getCentroEducativo() {
         return centroEducativo;
     }
 
-    public String mostrar() {
-        String str = "Ficha de Alumno/a \n";
-        str += "================= \n";
-        str += "Nombre: " + this.nombre + " \n";
-        str += "Apellido1: " + apellido1 + " \n";
-        str += "Apellido2: " + apellido2 + " \n";
-        str += "Nombre de usuari@: " + getUsername() + " \n";
-        if (fechaNacimiento != null) {
-            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            str += "Fecha de Nacimiento: " + fechaNacimiento.format(formato) + " \n";
-        }
-        if (modulos == null) {
-            str += "Aún no está matriculado en ningún módulo \n";
-        } else {
-            str += "Módulos en que está matriculado: " + Arrays.toString(modulos) + " \n";
-        }
-        return str;
+
+    public void mostrar() {
+        System.out.println("Ficha de Alumno/a");
+        System.out.println("=================");
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Apellido1: " + apellido1);
+        System.out.println("Apellido2: " + apellido2);
+        System.out.println("Nombre de usuari@: " + getUsername());
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println("Fecha de Nacimiento: " + fechaNacimiento.format(formato));
+        System.out.println("Nota Programación: " + notaProgramacion);
+        System.out.println("Nota Contornos: " + notaContornos);
+        System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
     }
 
     public void getIniciales() {
         String inicales = nombre.substring(0, 1) + apellido1.substring(0, 1)
                 + apellido2.substring(0, 1);
         System.out.println(inicales.toUpperCase());
-    }
+    }    
 
     public String getUsername() {
         // Genera el nombre de usuario

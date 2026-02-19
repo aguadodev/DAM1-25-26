@@ -1,4 +1,4 @@
-package ud4.alumnado;
+package ud4.alumnado.ejerciciosanteriores;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -6,15 +6,15 @@ import java.util.Scanner;
 
 public class AlumnoLeerMostrar {
     public static void main(String[] args) {
-        // Instancias Alumno
-        Alumno alumno = null;
+        // Instancias AlumnoV01
+        AlumnoV01 alumno = null;
 
-        alumno = leerDatosAlumno();
+        alumno = leerDatosAlumnoV01();
             
-        mostrarAlumno(alumno);
+        mostrarAlumnoV01(alumno);
     }
 
-    public static void mostrarAlumno(Alumno alumno) {
+    public static void mostrarAlumnoV01(AlumnoV01 alumno) {
         System.out.println("Ficha de Alumno/a");
         System.out.println("=================");
         System.out.println("Nombre: " + alumno.nombre);
@@ -27,8 +27,8 @@ public class AlumnoLeerMostrar {
         System.out.println("Nota media: " + ((alumno.notaProgramacion + alumno.notaContornos) / 2));
     }
 
-    public static Alumno leerDatosAlumno() {
-        Alumno alumno = new Alumno();
+    public static AlumnoV01 leerDatosAlumnoV01() {
+        AlumnoV01 alumno = new AlumnoV01();
         Scanner sc = new Scanner(System.in);
         System.out.print("Nombre: ");
         alumno.nombre = sc.nextLine();
