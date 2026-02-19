@@ -24,6 +24,8 @@ class Modulo {
     String mostrar()
     boolean hayAlumnado()
     double getSesiones()
+    boolean estaMatriculado(Alumno a)
+    boolean matricula(Alumno a)
 }
 
 Alumno "0..*" -- "0..*" Modulo : matriculado

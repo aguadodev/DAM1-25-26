@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+import ud3.strings.Util;
+
 public class Alumno {
     String nombre;
     String apellido1;
@@ -26,6 +28,11 @@ public class Alumno {
 
     public static String getCentroEducativo() {
         return centroEducativo;
+    }
+
+    @Override
+    public String toString() {
+        return getUsername();
     }
 
     public String mostrar() {
@@ -81,6 +88,26 @@ public class Alumno {
         username = username.replace('ñ', 'n');
 
         return username;
+    }
+
+    public static Alumno[] cargarFichero(String fichero) {
+        String[] alumnosCSV = Util.readFileToStringArray(fichero);
+
+        Alumno[] alumnos = new Alumno[alumnosCSV.length];
+
+        for (int i = 0; i < alumnosCSV.length; i++) {
+            String[] atributos = alumnosCSV[i].split(",");
+            alumnos[i] = new Alumno(
+                    atributos[0],
+                    atributos[1],
+                    atributos[2]);
+        }
+
+        return alumnos;
+    }
+
+    public boolean matricula(Modulo modulo) {
+        return modulo.matricula(this);
     }
 
 }

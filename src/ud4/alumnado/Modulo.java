@@ -21,6 +21,15 @@ public class Modulo {
         this.periodosSemanais = (byte) periodosSemanais;
     }
 
+
+    
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
+
+
     public String mostrar() {
         String str = "";
         str += nombre + "\n";
@@ -37,9 +46,22 @@ public class Modulo {
     }
 
 
-    public void matricula(Alumno a) {
-        // @TODO Comprueb que el alumno no está ya matriculado
+    public boolean estaMatriculado(Alumno a){
+        if (alumnos == null)
+            return false;
+        for (Alumno alumno : alumnos) {
+            if (alumno == a)
+                return true;
+        }
+        return false;
+    }
+
+    public boolean matricula(Alumno a) {
+        // Comprueba que el alumno no está ya matriculado
         // El método devuelve true si se ha podido matricular y false en caso contrario.
+        if (estaMatriculado(a))
+            return false;
+        
         if (alumnos == null) {
             alumnos = new Alumno[1];
         } else {            
@@ -47,7 +69,14 @@ public class Modulo {
         }
         alumnos[alumnos.length - 1] = a;
         
-        // @TODO Añadir el módulo al array de módulos del objeto Alumno
+        // Añadir el módulo al array de módulos del objeto Alumno
+        if (a.modulos == null) {
+            a.modulos = new Modulo[1];
+        } else {            
+            a.modulos = Arrays.copyOf(a.modulos, a.modulos.length + 1);
+        }
+        a.modulos[a.modulos.length - 1] = this;    
+        return true;            
     }
 
 
@@ -59,6 +88,7 @@ public class Modulo {
     public double getPorcentajeFaltas(int porcentaje) {
         return getSesiones() * porcentaje / 100;
     }
+
 
     public static Modulo[] cargarFichero(String fichero) {
         String[] modulosCSV = Util.readFileToStringArray(fichero);
