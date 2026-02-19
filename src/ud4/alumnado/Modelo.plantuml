@@ -9,6 +9,8 @@ class Alumno {
     mostrar()
     String getUsername()
     getIniciales()
+    boolean matricula(Alumno a)
+
     {static} String getCentroEducativo()    
     {static} setCentroEducativo()
 }
