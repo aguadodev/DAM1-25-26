@@ -30,6 +30,19 @@ class Modulo {
     boolean matricula(Alumno a)
 }
 
+
 Alumno "0..*" -- "0..*" Modulo : matriculado
+
+class Pregunta {
+    String enunciado
+    String[] respuestas
+    int respuestaCorrecta
+}
+
+class Examen {
+    String titulo
+}
+
+Examen "*" o-- "*" Pregunta
 
 @enduml

@@ -63,16 +63,4 @@ public class Pregunta {
 
         return preguntas;
     }
-
-    public static void main(String[] args) {
-        Pregunta[] preguntas = cargarFichero("DATOS - PreguntasTest.tsv");
-
-        for (int i = 0; i < preguntas.length; i++) {
-            System.out.println("PREGUNTA " + i);
-            System.out.println("=============");
-            System.out.println(preguntas[i]);
-        }
-
-        System.out.println("FIN");
-    }
 }
