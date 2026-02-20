@@ -3,8 +3,8 @@ package ud4.alumnado;
 import java.util.Arrays;
 
 public class Examen {
-    String titulo;
-    Pregunta[] preguntas;
+    protected String titulo;
+    protected Pregunta[] preguntas;
 
     public Examen(String titulo) {
         this.titulo = titulo;
@@ -27,6 +27,27 @@ public class Examen {
         return preguntas.length;
     }
 
+    public int corregir(String[] respuestasUsuario) {
+        int puntuacion = 0;
+        for (int i = 0; i < this.preguntas.length; i++) {
+            int respuestaUsuario = (respuestasUsuario[i].charAt(0) - 'a');
+            if (this.preguntas[i].corregir(respuestaUsuario))
+                puntuacion++;
+        }
+
+        return puntuacion;
+    }
+
+    public int corregir(int[] respuestasUsuario) {
+        int puntuacion = 0;
+        for (int i = 0; i < this.preguntas.length; i++) {
+            if (this.preguntas[i].corregir(respuestasUsuario[i]))
+                puntuacion++;
+        }
+
+        return puntuacion;
+    }    
+
     @Override
     public String toString() {
         String str = "Examen: " + titulo + "\n";
@@ -36,7 +57,5 @@ public class Examen {
         }
         return str;
     }
-
-    
 
 }

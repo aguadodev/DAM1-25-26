@@ -2,10 +2,10 @@ package ud4.alumnado;
 
 import java.util.Scanner;
 
-public class AppExamen {
+public class AppExamenPenalizable {
     public static void main(String[] args) {
 
-        Examen examenUD2 = new Examen("TEST UD2 - Programación");
+        ExamenPenalizable examenUD2 = new ExamenPenalizable("TEST UD2 - Programación");
         
         Pregunta[] preguntas = Pregunta.cargarFichero("DATOS - PreguntasTest.tsv");
 
