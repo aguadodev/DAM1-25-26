@@ -2,26 +2,44 @@ package ud4.clases;
 
 public class Persona {
     // Atributos
-    String nombre;
-    byte edad;
-    double estatura;
+    protected String nombre;
+    protected byte edad;
+    protected double estatura;
     // final String dni;
 
     // Métodos
-    void saludar() {
+
+    public void mostrarDatos() {
+        System.out.println("- " + nombre);
+        System.out.println("- " + edad);
+        System.out.println("- " + estatura);
+    }
+
+    public void saludar() {
         System.out.println("Hola, me llamo " + nombre);
     }
 
-    void cumplirAños() {
+    public void cumplirAños() {
         edad++;
     }
 
-    void crecer(double incremento) {
+    protected void crecer(double incremento) {
         estatura += incremento;
     }
 
+
+    
+    @Override
+    public String toString() {
+        return nombre + " (" + edad + ")";
+    }
+
+
+
+
+
     // constructor sobrecargado: solo asigna el nombre
-    Persona(String nombre) {
+    public Persona(String nombre) {
         this(nombre, 0, 0);
     }
 
@@ -33,7 +51,7 @@ public class Persona {
         this.estatura = estatura;
     }
 
-    Persona() {
+    public Persona() {
         edad = 18;
         estatura = 1.7;
     }
