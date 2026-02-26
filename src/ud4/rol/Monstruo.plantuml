@@ -1,25 +1,5 @@
 @startuml
 
-class Personaje {
-    -String nombre
-    -Raza raza
-    -int fuerza
-    -int agilidad
-    -int constitucion
-    -byte nivel
-    -int experiencia
-    -int pv    
-
-    String mostrar()
-    +int sumarExperiencia(int puntos)
-    +void subirNivel()
-    +void curar()
-    +boolean perderVida(int puntos)
-    +boolean estaVivo()
-    +int atacar(Personaje enemigo)
-    +int atacar(Monstruo enemigo)
-}
-
 class Monstruo {
     #String nombre
     #int ataque
@@ -52,4 +32,5 @@ Monstruo <|-- Orco
 Monstruo <|-- Troll
 Monstruo <|-- Aranha
 Monstruo <|-- Dragon
+
 @enduml

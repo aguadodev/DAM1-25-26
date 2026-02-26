@@ -1,0 +1,10 @@
+package ud4.rol;
+
+public class Aranha extends Monstruo {
+    public Aranha() {
+        ataque = rnd(10, 50);
+        defensa = rnd(20,40);
+        velocidad = rnd(40, 70);
+        puntosVida = rnd(30,80);
+    }  
+}
