@@ -19,7 +19,6 @@ public class Jefe extends Empleado {
         return nombre + " (" + cargo + ")";
     }    
 
-
     @Override
     public void mostrarDatos() {
         System.out.println("JEFE: " +  nombre + "(" + cargo + ")");

@@ -27,16 +27,16 @@ public class Persona {
         estatura += incremento;
     }
 
-
-    
     @Override
     public String toString() {
         return nombre + " (" + edad + ")";
     }
 
-
-
-
+    @Override
+    public boolean equals(Object otro) {//compara this con otro
+        Persona otraPersona = (Persona) otro;
+        return (this.nombre.equals(otraPersona.nombre) && this.edad == otraPersona.edad);
+    }
 
     // constructor sobrecargado: solo asigna el nombre
     public Persona(String nombre) {
