@@ -6,5 +6,6 @@ public class Troll extends Monstruo {
         defensa = rnd(50,70);
         velocidad = rnd(20, 40);
         puntosVida = rnd(100,200);
-    }
+    }    
+
 }

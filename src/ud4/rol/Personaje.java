@@ -74,6 +74,13 @@ public class Personaje {
         return constitucion + VIDA_MINIMA;
     }
 
+
+    
+
+    public int getPv() {
+        return pv;
+    }
+
     int sumarExperiencia(int puntos) {
         int expAnterior = experiencia / 1000;
         experiencia += puntos;

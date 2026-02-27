@@ -7,4 +7,5 @@ public class Orco extends Monstruo {
         velocidad = rnd(30, 60);
         puntosVida = rnd(30,100);
     }  
+     
 }

@@ -7,4 +7,15 @@ public class Dragon extends Monstruo {
         velocidad = rnd(80, 120);
         puntosVida = rnd(120,250);
     }  
+    
+    @Override
+    public int atacar(Personaje p) {
+        int danho = super.atacar(p);
+        if (danho > 0) {
+            if (rnd(1, 100) > 50)
+                // Ataque de llamarada
+                System.out.println("Chamuscad@!!");
+        }
+        return danho;        
+    }            
 }

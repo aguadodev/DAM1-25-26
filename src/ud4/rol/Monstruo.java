@@ -28,7 +28,7 @@ public abstract class Monstruo {
     public String toString() {
         String str = "";
         str += getClass().getSimpleName();
-        str += " (" + puntosVida + ")\n";
+        str += " (" + puntosVida + ")";
 
         return str;
     }
@@ -44,7 +44,17 @@ public abstract class Monstruo {
     // Método abstracto?? Cada subclase de monstruo deberá implementarlo a su manera
     // O implementamos un ataque genérico que luego puedan sobreescribir?
     // Puede un monstruo no ser capaz de atacar? Como lo modelamos?    
-    public abstract int atacar(Personaje p);
+    public int atacar(Personaje p){
+        int ataque = this.ataque + rnd(1, 100);
+        int defensa = p.getAgilidad() + rnd(1, 100);
+        int danho = Math.min(ataque - defensa, p.getPv());
+        if (danho > 0) {
+            p.perderVida(danho);
+            p.sumarExperiencia(danho);
+            return danho;
+        }
+        return 0;         
+    }
 
     public static Monstruo generaMonstruoAleatorio() {
         return null;
@@ -75,9 +85,17 @@ public abstract class Monstruo {
         m = d;
 
         Personaje p = new Personaje("Pepe");
-        Monstruo[] monstruos = {o, t, a, d};
+        System.out.println(p.mostrar());
+        Monstruo[] monstruos = { a, d, o, t};
         for (Monstruo monstruo : monstruos) {
-            monstruo.atacar(p);
+            System.out.println("\n" + monstruo + " ataca a " + p);
+            int danho = monstruo.atacar(p);
+            if (danho > 0) 
+                System.out.println(p + " perdió " + danho + " puntos");
+            else 
+                System.out.println(p + " esquivó el ataque");
+            
         }
+        System.out.println(p.mostrar());
     } 
 }
