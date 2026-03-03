@@ -1,12 +1,13 @@
 package ud4.rol;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Monstruo es una clase abstracta porque no queremos permitir isntanciar monstruos genéricos.
  * @TODO Redefinimos la jerarquía para agrupar los parámetros comunes de Personaje y Monstruo??
  */
-public abstract class Monstruo {
+public abstract class Monstruo implements Comparable<Monstruo> {
     protected String nombre;
     protected int ataque;
     protected int defensa;
@@ -69,6 +70,13 @@ public abstract class Monstruo {
     } 
 
 
+    
+
+    @Override
+    public int compareTo(Monstruo o) {
+        return defensa - o.defensa;
+    }
+
     public static void main(String[] args) {
         // Monstruo m = new Monstruo();
         //System.out.println(m);
@@ -87,6 +95,9 @@ public abstract class Monstruo {
         Personaje p = new Personaje("Pepe");
         System.out.println(p.mostrar());
         Monstruo[] monstruos = { a, d, o, t};
+
+        Arrays.sort(monstruos);
+
         for (Monstruo monstruo : monstruos) {
             System.out.println("\n" + monstruo + " ataca a " + p);
             int danho = monstruo.atacar(p);
