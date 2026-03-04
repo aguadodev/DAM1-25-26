@@ -1,4 +1,4 @@
-package ud4.interfaces;
+package ud4.interfaces.animales;
 
 class Leon implements Sonido {
    public void voz() {

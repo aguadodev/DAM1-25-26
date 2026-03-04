@@ -1,6 +1,6 @@
-package ud4.interfaces;
+package ud4.interfaces.animales;
 
-class Gato implements Sonido {
+public class Gato implements Sonido {
    public void voz () {
       System.out.println("Miau!");
    }
