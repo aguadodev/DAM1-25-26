@@ -1,11 +1,11 @@
-package ud4;
+package ud4.interfaces;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
-public class OrdenarNumeros {
+public class E0910_OrdenarNumeros {
     public static void main(String[] args) {
         Random rnd = new Random();
 
