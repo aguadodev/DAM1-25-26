@@ -1,4 +1,4 @@
-package ud4.xxxxxxxx;
+package ud4.examen;
 public class AppArbitro {
     public static void main(String[] args) {
         Arbitro arbitro = new Arbitro("12345678A", "Juan Pérez");

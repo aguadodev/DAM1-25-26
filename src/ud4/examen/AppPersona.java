@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class AppPersona {
     public static void main(String[] args) {
-        Persona persona = new Persona("12345678A", "Juan Pérez", LocalDate.of(1990, 3, 1));
+        Persona persona = new Persona("12345678A", "Juan Pérez", LocalDate.of(1990, 3, 18));
         System.out.println("Nombre: " + persona.getNombre());
         System.out.println("DNI: " + persona.getDni());
         System.out.println("Fecha de Nacimiento: " + persona.getFechaNacimiento());
