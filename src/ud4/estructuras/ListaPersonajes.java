@@ -2,21 +2,23 @@ package ud4.estructuras;
 
 import java.util.Arrays;
 
-public class Lista {
-    Integer[] elementos;
+import ud4.rol.Personaje;
 
-    public Lista() {
-        elementos = new Integer[0];
+public class ListaPersonajes {
+    Personaje[] elementos;
+
+    public ListaPersonajes() {
+        elementos = new Personaje[0];
     }
 
-    public boolean add(Integer e) {
+    public boolean add(Personaje e) {
         elementos = Arrays.copyOf(elementos, elementos.length + 1);
         elementos[elementos.length - 1] = e;
         return true;
     }
 
     public void clear() {
-        elementos = new Integer[0];
+        elementos = new Personaje[0];
     }
 
     @Override
@@ -24,11 +26,11 @@ public class Lista {
         return Arrays.toString(elementos);
     }
 
-    public Integer get(int index) {
+    public Personaje get(int index) {
         return elementos[index];
     }
 
-    public boolean contains(Integer element) {
+    public boolean contains(Personaje element) {
         for (int i = 0; i < elementos.length; i++) {
             if (elementos[i] == element) {
                 return true;
@@ -64,23 +66,23 @@ public class Lista {
     }
 
     public static void main(String[] args) {
-        Lista lista = new Lista();
-        lista.add(5);
-        lista.add(7);
-        lista.add(3);
+        ListaPersonajes lista = new ListaPersonajes();
+        lista.add(new Personaje("Pepe"));
+        lista.add(new Personaje("Pepe2"));
+        lista.add(new Personaje("Pepe3"));
         System.out.println(lista);
         int i = 1;
         System.out.println("Elemento en la posición " + i + ": " + lista.get(i));
-        if (lista.contains(7)) {
+        if (lista.contains(new Personaje("Pepe"))) {
             System.out.println("Hay un 7 en la lista");            
-            System.out.println("Está en el índice: " + lista.indexOf(7));
+            System.out.println("Está en el índice: " + lista.indexOf(new Personaje("Pepe2")));
         }
         System.out.println("Tamaño de la lista: " + lista.size());
             
-        Lista lista2 = new Lista();
-        lista2.add(5);
-        lista2.add(7);
-        lista2.add(3);        
+        ListaPersonajes lista2 = new ListaPersonajes();
+        lista2.add(new Personaje("Pepe"));
+        lista2.add(new Personaje("Pepe2"));
+        lista2.add(new Personaje("Pepe3"));        
 
         System.out.println("Listas iguales?: " + lista.equals(lista2));
 
