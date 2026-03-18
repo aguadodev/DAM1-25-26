@@ -2,21 +2,24 @@ package ud4.estructuras;
 
 import java.util.Arrays;
 
+import ud4.clases.Persona;
+import ud4.rol.Personaje;
+
 public class Lista {
-    Integer[] elementos;
+    Object[] elementos;
 
     public Lista() {
-        elementos = new Integer[0];
+        elementos = new Object[0];
     }
 
-    public boolean add(Integer e) {
+    public boolean add(Object e) {
         elementos = Arrays.copyOf(elementos, elementos.length + 1);
         elementos[elementos.length - 1] = e;
         return true;
     }
 
     public void clear() {
-        elementos = new Integer[0];
+        elementos = new Object[0];
     }
 
     @Override
@@ -24,11 +27,11 @@ public class Lista {
         return Arrays.toString(elementos);
     }
 
-    public Integer get(int index) {
+    public Object get(int index) {
         return elementos[index];
     }
 
-    public boolean contains(Integer element) {
+    public boolean contains(Object element) {
         for (int i = 0; i < elementos.length; i++) {
             if (elementos[i] == element) {
                 return true;
@@ -64,6 +67,12 @@ public class Lista {
     }
 
     public static void main(String[] args) {
+        Lista lista2 = new Lista();
+        lista2.add(new Persona());
+
+        Lista lista3 = new Lista();
+        lista3.add(new Personaje("Pepe"));        
+
         Lista lista = new Lista();
         lista.add(5);
         lista.add(7);
