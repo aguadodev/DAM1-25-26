@@ -12,20 +12,21 @@ static <U> int numeroDeNulos(U[] tabla) {
     return cont;
 }
 
-static int numeroDeNulos(Integer[] tabla) {
-    int cont = 0;
-    for (Integer e : tabla)
-        if (e == null)
-            cont++;
-    return cont;
-}
+public static void main(String[] args) {
+    Integer[] enteros = {4, 7, null, 2, 8, null, null, 10};
+    System.out.println(numeroDeNulos(enteros));
 
-static int numeroDeNulos(Personaje[] tabla) {
-    int cont = 0;
-    for (Personaje e : tabla)
-        if (e == null)
-            cont++;
-    return cont;
+    Personaje[] personajes = {
+        null,
+        new Personaje("Pepe"),
+        null
+    };
+    System.out.println(numeroDeNulos(personajes));
+
+    enteros = add(7, enteros);
+
+    personajes = add(new Personaje("Marta"), personajes);
+
 }
 
 
