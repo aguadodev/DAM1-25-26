@@ -2,7 +2,7 @@ package ud4.rol;
 
 import java.util.Random;
 
-public class Personaje {
+public class Personaje implements Comparable<Personaje> {
     private String nombre;
     private Raza raza;
     private int fuerza;
@@ -149,6 +149,11 @@ public class Personaje {
     }
     public int getAgilidad() {
         return agilidad;
+    }
+
+    @Override
+    public int compareTo(Personaje o) {
+        return nombre.compareTo(o.nombre);
     }
 
 
