@@ -1,6 +1,8 @@
 package ud5;
 
-class Contenedor<T extends Number> {
+import ud4.rol.Personaje;
+
+class Contenedor<T> {
 
     private T objeto; // se inicializa a null: contenedor vacío
 
@@ -18,8 +20,8 @@ class Contenedor<T extends Number> {
     }    
 
     public static void main(String[] args) {
-        Contenedor<Integer> c = new Contenedor<>();
-        c.guardar(7);
+        Contenedor<Integer> cInt = new Contenedor<>();
+        cInt.guardar(7);
         // c.guardar("Hola");
 
         Contenedor<String> cStr = new Contenedor<>();
@@ -31,6 +33,13 @@ class Contenedor<T extends Number> {
         Double d = (Double) contenedor.extraer(); // Error de ejecución
 
         //Double x = (Double) c.extraer(); // error de ejecución
+
+        Contenedor<?> c; 
+        c = cInt;
+        c = cStr;
+        c = new Contenedor<Personaje>();
+
+
     }
 
 }
