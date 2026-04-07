@@ -25,7 +25,7 @@ public class Cliente implements Comparable<Cliente>{
 
 
 
-    private int edad() {
+    public int getEdad() {
         return (int) fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
     }
 
@@ -38,7 +38,7 @@ public class Cliente implements Comparable<Cliente>{
 
     @Override
     public String toString() {
-        return "DNI: " + dni + " Nombre: " + nombre + " Edad: " + (fechaNacimiento == null? "?" : edad());
+        return "DNI: " + dni + " Nombre: " + nombre + " Edad: " + (fechaNacimiento == null? "?" : getEdad());
     }
 
     @Override
@@ -68,6 +68,6 @@ public class Cliente implements Comparable<Cliente>{
 
     @Override
     public int compareTo(Cliente o) {
-        return dni.compareTo(o.dni);
+        return o.dni.compareTo(dni);
     }
 }
