@@ -15,15 +15,16 @@ public class E1210 {
         for (int i = 0; i < 12; i++) 
             lista.add(rnd.nextInt(10) + 1);
 
-        System.out.println(lista);
+        System.out.println("Lista con elementos repetidos: " + lista);
 
         // Elementos sin incluir repeticiones
         Set<Integer> conjunto = new LinkedHashSet<>(lista);
-        System.out.println(conjunto);
+        System.out.println("Elementos Únicos: " + conjunto);
 
         // 
         Set<Integer> losQueSeRepiten = new LinkedHashSet<>();
         Set<Integer> losQueNoSeRepiten = new LinkedHashSet<>();
+        
         for (Integer n : conjunto) {
             if (lista.indexOf(n) == lista.lastIndexOf(n))
                 losQueNoSeRepiten.add(n);
@@ -31,8 +32,20 @@ public class E1210 {
                 losQueSeRepiten.add(n);
         }
 
-        System.out.println(losQueSeRepiten);
-        System.out.println(losQueNoSeRepiten);
+        /* OTRO MÉTODO
+        for (Integer i : conjunto) {
+            lista.remove(i);    
+        }
+        System.out.println("ListaAuxiliar: " + lista);
+
+        losQueSeRepiten.addAll(lista);
+        losQueNoSeRepiten = conjunto;
+        losQueNoSeRepiten.removeAll(losQueSeRepiten);
+        */
+
+
+        System.out.println("Repetidos en la lista: " + losQueSeRepiten);
+        System.out.println("NO repetidos en la lista: " + losQueNoSeRepiten);
     
     }
 }

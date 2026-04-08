@@ -30,7 +30,7 @@ public class Conjuntos {
             }  
         };
 
-        Set<Cliente> clientesPorEdad = new TreeSet<>(compEdad.thenComparing(Comparator.naturalOrder()));
+        Set<Cliente> clientesPorEdad = new TreeSet<>(compEdad);
         clientesPorEdad.addAll(clientes);
         System.out.println("Ordenados por Edad");
         for (Cliente c : clientesPorEdad) {
