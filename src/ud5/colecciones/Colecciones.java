@@ -1,9 +1,11 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import ud5.Cliente;
 
 public class Colecciones {
     public static void main(String[] args) {

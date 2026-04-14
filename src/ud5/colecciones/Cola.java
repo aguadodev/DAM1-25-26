@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 public interface Cola<T> {
     public void encolar(T e);

@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 public interface Pila<T> {
     public void apilar(T e);

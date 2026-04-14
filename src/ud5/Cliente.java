@@ -29,10 +29,17 @@ public class Cliente implements Comparable<Cliente>{
         return (int) fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
     }
 
+    
     /*@Override
     public boolean equals(Object obj) {
         return dni.equals(((Cliente)obj).dni);
     }*/
+
+
+
+    public String getNombre() {
+        return nombre;
+    }
 
 
 

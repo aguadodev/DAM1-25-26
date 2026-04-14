@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

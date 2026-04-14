@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -6,6 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
+import ud5.Cliente;
 
 public class Conjuntos {
     public static void main(String[] args) {

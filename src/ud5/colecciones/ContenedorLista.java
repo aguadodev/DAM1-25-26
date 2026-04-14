@@ -1,4 +1,4 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.Arrays;
 import ud4.rol.Personaje;

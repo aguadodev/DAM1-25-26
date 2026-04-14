@@ -1,10 +1,11 @@
-package ud5;
+package ud5.colecciones;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import ud5.Cliente;
 
 public class Listas {
     public static void main(String[] args) {
@@ -44,9 +45,9 @@ public class Listas {
         Comparator<Cliente> ordenNombre = new Comparator<>() {
             @Override
             public int compare(Cliente o1, Cliente o2) {
-                if (o1.nombre == null || o2.nombre == null)
+                if (o1.getNombre() == null || o2.getNombre() == null)
                     return 0;
-                return o2.nombre.compareTo(o1.nombre);
+                return o2.getNombre().compareTo(o1.getNombre());
             }
             
         };
