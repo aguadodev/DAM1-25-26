@@ -10,7 +10,7 @@ public interface CSV <T> {
     static <T> void guardarCSV(Collection<T> c, CSV<T> csv, String fichero) {        
         String str = "";
         for (T t : c) {
-            str += csv.generarLinea(t);
+            str += csv.generarLinea(t) + "\n";
         }
         Util.writeStringToFile(str, fichero);
     }    
