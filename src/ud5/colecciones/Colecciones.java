@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import ud5.Cliente;
+import ud5.interfaces_funcionales.Cliente;
 
 public class Colecciones {
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class Colecciones {
         while (itCliente.hasNext()) {
             Cliente c = itCliente.next();
             System.out.println(i + ". " + c);
-            if (c.fechaNacimiento.getYear() == 2000)
+            if (c.getFechaNacimiento().getYear() == 2000)
                 itCliente.remove();
             i++;
         }

@@ -1,4 +1,4 @@
-package ud5;
+package ud5.interfaces_funcionales;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +39,12 @@ public class Cliente implements Comparable<Cliente>{
 
     public String getNombre() {
         return nombre;
+    }
+
+
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
 

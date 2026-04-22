@@ -6,8 +6,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import ud5.CSV;
-import ud5.CSVRead;
+
+import ud5.interfaces_funcionales.CSV;
+import ud5.interfaces_funcionales.CSVRead;
 
 public class E1214_EstMet {
     static Scanner sc;

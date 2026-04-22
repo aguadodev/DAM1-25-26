@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import ud5.Cliente;
+import ud5.interfaces_funcionales.Cliente;
 
 public class ColeccionesGlobal {
     public static void main(String[] args) {

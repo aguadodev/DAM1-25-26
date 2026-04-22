@@ -1,4 +1,4 @@
-package ud5;
+package ud5.interfaces_funcionales;
 
 import java.util.Collection;
 

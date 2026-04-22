@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import ud5.Cliente;
+import ud5.interfaces_funcionales.Cliente;
 
 public class Conjuntos {
     public static void main(String[] args) {

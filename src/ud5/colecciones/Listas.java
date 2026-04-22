@@ -5,7 +5,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import ud5.Cliente;
+
+import ud5.interfaces_funcionales.Cliente;
 
 public class Listas {
     public static void main(String[] args) {
