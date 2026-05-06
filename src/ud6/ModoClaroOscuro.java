@@ -20,8 +20,14 @@ public class ModoClaroOscuro extends Application {
 
         ToggleButton toggleButton = new ToggleButton("Modo oscuro");
         toggleButton.setOnAction(e -> {
-            toggleButton.setText("Modo claro");
-            vbox.setStyle(toggleButton.isSelected() ? "-fx-background-color: black; -fx-text-fill: white;" : "-fx-background-color: white; -fx-text-fill: black;");
+            if (toggleButton.isSelected()) {
+                toggleButton.setText("Modo claro");
+                vbox.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+            } else {
+                toggleButton.setText("Modo oscuro");
+                vbox.setStyle("-fx-background-color: white; -fx-text-fill: black;");
+            }
+
         });
         vbox = new VBox(toggleButton);
         scene = new Scene(vbox, 400, 300);
