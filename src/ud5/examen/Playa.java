@@ -11,18 +11,12 @@ import java.util.TreeSet;
 
 public class Playa {
 
-        int id;
+    int id;
     String nombre;
     String concello;
     String provincia;
     double lat;
     double lon;
-
-
-
-
-
-   
 
     static void playasConcello(List<Playa> playas, String concello) {
         if (playas == null || concello == null)
@@ -40,12 +34,12 @@ public class Playa {
     static Map<String, List<Playa>> playasPorProvincia(List<Playa> playas) {
         if (playas == null)
             return null;
-        
+
         Map<String, List<Playa>> playasPorProvincia = new HashMap<>();
         Set<String> provincias = new TreeSet<>();
-        for (Playa playa : playas) 
+        for (Playa playa : playas)
             provincias.add(playa.getProvincia());
-        
+
         for (String provincia : provincias) {
             List<Playa> lista = new ArrayList<>();
             for (Playa p : playas)
@@ -60,32 +54,48 @@ public class Playa {
     static Map<Playa, Integer> playasFavoritas(Map<String, List<Playa>> playasFavoritas) {
         Map<Playa, Integer> playasConPuntos = new LinkedHashMap<>();
 
-        int puntos;
+        int puntos = 0;
 
-        for (Map.Entry<String, List<Playa>> e : playasFavoritas.entrySet()) {
-            List<Playa> playas = e.getValue();
+        for (Map.Entry<String, List<Playa>> entrada : playasFavoritas.entrySet()) {
+            List<Playa> playas = entrada.getValue();
             // Recorro las 3 primeras playas de la lista
             for (int i = 0; i < 3 && i < playas.size(); i++) {
                 switch (i) {
-                    case 0: puntos = 10; break;
-                    case 1: puntos = 5; break;
-                    case 2: puntos = 2; break;
+                    case 0:
+                        puntos = 10;
+                        break;
+                    case 1:
+                        puntos = 5;
+                        break;
+                    case 2:
+                        puntos = 2;
+                        break;
                 }
-
-                playasConPuntos.put(playas.get(i), playasConPuntos.getOrDefault(playasConPuntos, puntos));
+                // añado la playa o actualizo la puntuación
+                if (playasConPuntos.get(playas.get(i)) == null)
+                    playasConPuntos.put(playas.get(i), puntos);
+                else {
+                    int puntosActualizados = puntos + playasConPuntos.get(playas.get(i));
+                    playasConPuntos.put(playas.get(i), puntosActualizados);
+                }
             }
-            // añado la playa o actualizo la puntuación
-
-
         }
-        
-        return playasConPuntos;
+
+        // Genero una lista de entradas y la ordeno por puntuación descendente
+        List<Map.Entry<Playa, Integer>> listaOrdenada = new ArrayList<>(playasConPuntos.entrySet());
+        listaOrdenada.sort(
+                (e1, e2) -> e2.getValue() - e1.getValue());
+
+        // Meto la lista de entradas en un LinkedHashMap
+        Map<Playa, Integer> playasOrdenadasPorPuntos = new LinkedHashMap<>();
+        for (Map.Entry<Playa, Integer> e : listaOrdenada) {
+            playasOrdenadasPorPuntos.put(e.getKey(), e.getValue());
+        }
+
+        return playasOrdenadasPorPuntos;
     }
 
-
-
-
- public Playa(int id, String nombre, String concello, String provincia, double lat, double lon) {
+    public Playa(int id, String nombre, String concello, String provincia, double lat, double lon) {
         this.id = id;
         this.nombre = nombre;
         this.concello = concello;
@@ -94,58 +104,52 @@ public class Playa {
         this.lon = lon;
     }
 
- public int getId() {
-    return id;
- }
+    public int getId() {
+        return id;
+    }
 
- public void setId(int id) {
-    this.id = id;
- }
+    public void setId(int id) {
+        this.id = id;
+    }
 
- public String getNombre() {
-    return nombre;
- }
+    public String getNombre() {
+        return nombre;
+    }
 
- public void setNombre(String nombre) {
-    this.nombre = nombre;
- }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
- public String getConcello() {
-    return concello;
- }
+    public String getConcello() {
+        return concello;
+    }
 
- public void setConcello(String concello) {
-    this.concello = concello;
- }
+    public void setConcello(String concello) {
+        this.concello = concello;
+    }
 
- public String getProvincia() {
-    return provincia;
- }
+    public String getProvincia() {
+        return provincia;
+    }
 
- public void setProvincia(String provincia) {
-    this.provincia = provincia;
- }
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
 
- public double getLat() {
-    return lat;
- }
+    public double getLat() {
+        return lat;
+    }
 
- public void setLat(double lat) {
-    this.lat = lat;
- }
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
 
- public double getLon() {
-    return lon;
- }
+    public double getLon() {
+        return lon;
+    }
 
- public void setLon(double lon) {
-    this.lon = lon;
- }
-
-    
-
-
-
-
+    public void setLon(double lon) {
+        this.lon = lon;
+    }
 
 }
