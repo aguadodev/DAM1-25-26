@@ -1,6 +1,7 @@
 package ud5.examen;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ListaCremallera {
@@ -26,4 +27,18 @@ public class ListaCremallera {
         }
         return listaCremallera;
     }
+
+
+    public static void main(String[] args) {
+        List<String> l1 = new ArrayList<>();
+        l1.add("Pepe");
+        l1.add("Juan");       
+        List<String> l2 = new LinkedList<>();
+        l2.add("Marta");
+        l2.add("María");
+        l2.add("Lola");
+
+        System.out.println(listaCremallera(null, null));
+    }
+
 }
