@@ -6,7 +6,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Ejemplo4_ColorFondo extends Application{
+public class Ejemplo5_Color extends Application{
     VBox vBox;
 
     @Override
