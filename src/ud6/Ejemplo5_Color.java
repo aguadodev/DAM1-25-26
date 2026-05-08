@@ -13,6 +13,7 @@ public class Ejemplo5_Color extends Application{
     public void start(Stage primaryStage) throws Exception {
         // En lugar de un TextField y un Button usamos un ChoiceBox
         ChoiceBox<String> cb = new ChoiceBox<>();
+        cb.setStyle("-fx-background-color: cyan; ");
         cb.getItems().addAll("black", "green", "red", "white");
         cb.setOnAction(e -> vBox.setStyle("-fx-background-color: " + cb.getValue() + ";"));
         vBox = new VBox(cb);
