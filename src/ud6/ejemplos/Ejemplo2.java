@@ -1,4 +1,4 @@
-package ud6;
+package ud6.ejemplos;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

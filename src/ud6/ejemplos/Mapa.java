@@ -1,4 +1,4 @@
-package ud6;
+package ud6.ejemplos;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,11 +9,14 @@ import javafx.stage.Stage;
 public class Mapa extends Application{
 
     int[][] mapa = {
-        {1, 0, 1, 1, 1, 1},
-        {1, 0, 1, 0, 0, 1},
-        {1, 0, 1, 0, 1, 1},
-        {1, 0, 0, 0, 0, 1},
-        {1, 1, 1, 1, 0, 1},
+        {1, 0, 1, 0, 1, 0, 1, 0, 1},
+        {0, 1, 0, 1, 0, 1, 0, 1, 0},
+        {1, 0, 1, 0, 1, 0, 1, 0, 1},
+        {0, 1, 0, 1, 0, 1, 0, 1, 0},
+        {1, 0, 1, 0, 1, 0, 1, 0, 1},
+        {0, 1, 0, 1, 0, 1, 0, 1, 0},
+        {1, 0, 1, 0, 1, 0, 1, 0, 1},
+        {0, 1, 0, 1, 0, 1, 0, 1, 0},
     };
 
     @Override
@@ -32,7 +35,6 @@ public class Mapa extends Application{
                 gridPane.add(lbl, j, i);
             }
         }
-
 
         Scene scene = new Scene(gridPane);
         primaryStage.setScene(scene);

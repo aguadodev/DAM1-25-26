@@ -1,4 +1,4 @@
-package ud6;
+package ud6.ejemplos;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
