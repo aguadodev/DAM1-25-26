@@ -1,8 +1,9 @@
 package ud4.rol;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Personaje implements Comparable<Personaje> {
+public class Personaje implements Comparable<Personaje>, Serializable {
     private String nombre;
     private Raza raza;
     private int fuerza;
