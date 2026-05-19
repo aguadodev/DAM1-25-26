@@ -8,7 +8,7 @@ public class LeerFicheroTexto {
     public static void main(String[] args) {
         try {
             FileReader in = new FileReader("DATOS - Alumnos.csv");
-            //String contenido = in.readAllAsString();
+            String contenido = in.readAllAsString();
 
             // Leer caracter a caracter
             String contenido = "";
