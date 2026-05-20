@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ud6.practicas.EntrenamientoController">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Fichero">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirFichero" text="Abrir…" />
+                  <MenuItem mnemonicParsing="false" onAction="#guardarFichero" text="Guardar..." />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="378.0" prefWidth="671.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="32.0" layoutY="43.0" text="Nombre Deportista" />
+            <TextField fx:id="txtNombre" layoutX="153.0" layoutY="39.0" />
+            <Label layoutX="32.0" layoutY="82.0" text="Fecha Entrenamiento" />
+            <DatePicker fx:id="dateFecha" layoutX="154.0" layoutY="78.0" />
+            <Label layoutX="32.0" layoutY="115.0" text="Kilómetros recorridos" />
+            <TextField fx:id="txtKm" layoutX="153.0" layoutY="111.0" prefHeight="25.0" prefWidth="54.0" />
+            <Button layoutX="154.0" layoutY="148.0" mnemonicParsing="false" onAction="#addRegistro" text="Añadir Registro" />
+            <ListView fx:id="lstRegistros" layoutX="346.0" layoutY="39.0" prefHeight="310.0" prefWidth="268.0" />
+            <Label layoutX="346.0" layoutY="14.0" text="Registros de Entrenamiento" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
